@@ -3,10 +3,17 @@ package tw.brad.myclass;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class MyDrawer extends JPanel { //8
@@ -53,15 +60,64 @@ public class MyDrawer extends JPanel { //8
 		}
 		
 		public void undo() {
+			if(lines.size()>0) {
+		
 			recycle.add(lines.removeLast());
 			repaint();
 		}
-		
+	}
 		public void redo() {
+			if(recycle.size()>0) {
 			lines.add(recycle.removeLast());
 			repaint();
 			
 		}
+	}
+			public boolean saveJpeg(File saveFile) {
+				boolean ret = true;
+				BufferedImage image= 
+					new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
+			//Graphics2D g =image.createGraphics();
+			  Graphics g= image.getGraphics();
+			  paint(g);
+			  g.dispose();
+			  
+			  try {
+				  
+				ImageIO.write(image,"jpg", saveFile);
+			} catch (IOException e) {
+				ret=false;
+			}
+			  return ret;
+		}
+		
+			
+			
+			
+		public void saveLines()throws Exception {
+			try(ObjectOutputStream oout = 
+					new ObjectOutputStream(
+							new FileOutputStream("die1/sig.obj"));
+					) {
+				
+					oout.writeObject(lines);
+			};
+		
+			
+			
+			
+			
+			
+		}
+		public void loadLines() throws Exception{
+			ObjectInputStream  oin=
+					new ObjectInputStream(new FileOutputStream("die1/sig.obj"));
+			){
+		Lines=LinkedList<Line>obj;		
+					
+		}
+			
+		
 		
 			
 		@Override	
