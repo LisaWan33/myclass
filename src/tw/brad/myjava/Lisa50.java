@@ -15,7 +15,7 @@ public class Lisa50 {
 			 File file = new File("dir1/file1.txt");
              fin=new FileInputStream(file);
              byte[]buf=new byte[(int)file.length()];
-            
+            //byte=>int
              fin.read(buf);
              System.out.println(new String(buf));
             		 

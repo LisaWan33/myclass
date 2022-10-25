@@ -9,11 +9,18 @@ import java.io.Serializable;
 import tw.brad.myclass.Bike;
 
 public class Lisa59 {
+	
+	
+	
 	/* 輸出、輸入比較(序列化)
 	 * 但implements Serializable，宣告在哪一代，會有關系
 	 * 在父類別上，若已經實作可序列化，則孫子就一定已經序列化
 	 * 但若是，孫子做了序列化，阿公、爸爸就不會有
 	 */
+	
+	
+	
+	
 	public static void main(String[] args) {
 		Lisa583 obj = new Lisa583();
 		try {
@@ -22,6 +29,8 @@ public class Lisa59 {
 			oout.close();
 			oout.flush();
 			System.out.println("ok1");
+			
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
