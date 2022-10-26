@@ -6,7 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.rmi.server.ServerCloneException;
 
-public class Lisa64 {
+public class Lisa64 { //10
 	public static void main(String[] args) {
 		/*TCP
 		 * server端，收回來，服務端
