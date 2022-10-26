@@ -5,13 +5,13 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 
-public class Lisa61 {
+public class Lisa61 { //10
 
 	public static void main(String[] args) {
 		/*建立插座
 		 * UDP重要的兩個類別：DatagramSocket、DatagramPacket。
 		 * 提供接收端與傳送端調用API
-		 * UDP傳輸量較大，相較TCP迅速。
+		 * UDP傳輸量較大，相較TCP迅速。(但 UDP不知道對方有沒有接收到)
 		 * 缺點是不可靠，程式需自行建立可靠機制。
 		 * 
 		 * 
