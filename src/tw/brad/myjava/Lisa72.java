@@ -15,7 +15,7 @@ public class Lisa72 {
 	public static void main(String[] args) {
      /*頁面文字檔
       * 承襲Lisa68
-      * 將JSON改成適合的樣子=>>>可用JSONArray
+      * 將JSON改成適合的樣子=>>>可用JSONArray(上網下載匯入)
       * 
       */
 		

@@ -1,6 +1,7 @@
 package tw.brad.myjava;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,20 +9,28 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import tw.brad.myclass.MyClock;
 
 public class Racing extends JFrame {
 	private JButton go;
 	private JLabel[] lanes;
 	private Car[] cars;
 	private int rank;
-	private MyClock myclock;
+	private MyClock myClock;
 	
 	public Racing() {
 		super("賽車");//設計8個賽道+1個按鈕道;一個垂直column
 		setLayout(new GridLayout(9,1));
 		
 		go=new JButton("GO!"); 
-		top.add(go);top.add(myclock);
+		myClock = new MyClock();
+		JPanel top = new JPanel(new FlowLayout());
+		
+		top.add(go);top.add(myClock);
+		
+		add(top);
 		
 		go.setBackground(Color.lightGray);
 		lanes=new JLabel[8];
@@ -56,7 +65,8 @@ public class Racing extends JFrame {
 	private void go() {
 		for (int i=0;i<cars.length;i++) {
 			cars[i].start();
-			setEnabled(false);
+			go.setEnabled(false);
+			preGo();
 		}
 	}
 	
@@ -69,7 +79,7 @@ public class Racing extends JFrame {
 				if(i==99) {
 					
 					lanes[lane].setText(lanes[lane].getText()+">"+rank++);
-				
+					stopGame();
 				}else {
 					lanes[lane].setText(lanes[lane].getText()+">");
 				}

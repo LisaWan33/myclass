@@ -11,7 +11,7 @@ import java.net.Socket;
 public class Lisa68 {
 	public static void main(String[] args) {
 	
-		while(true) {
+		while(true) {   //改版，改Lisa67(接收檔案)
 		try {
 			ServerSocket server=new ServerSocket(9487);
 			Socket socket=server.accept();
@@ -21,24 +21,28 @@ public class Lisa68 {
 			
 			InputStream in= socket.getInputStream() ;
 			BufferedInputStream bin=new BufferedInputStream(in);
+			
 			int len; byte[]buf=new byte[1024*1024*1024];
 			len=bin.read(buf);
 			
-			if(len>0) {
+			
+			
+			if(len>0) { //length!=-1
 			FileOutputStream fout=new FileOutputStream("dir1/" +filename);
 			BufferedOutputStream bout=new BufferedOutputStream(fout);
 			bout.write(buf,0,len);
 			
 			bout.close();
 			bout.flush();
-			}
+			}//大於0做這些事，沒有大於0，甚麼事都不做
 			
 			bin.close();
 			server.close();
 			System.out.println("recieve Success: "+filename );
-		} catch (IOException e) {
+		}catch (IOException e) {
 			System.out.println(e);
-		}
+			}
+		
 		}
 	}
 

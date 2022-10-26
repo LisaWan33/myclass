@@ -1,4 +1,4 @@
-package tw.brad.myjava;
+package tw.brad.myclass;
 
 import java.awt.Color;
 import java.text.SimpleDateFormat;
@@ -28,7 +28,7 @@ public class MyClock extends JLabel {
 			int s=now.get(Calendar.SECOND);
 		setText(String.format("%04d / %02d / %02d %02d:%02d:%02d",yy,mm,dd,h,m,s ));
 		
-		SimpleDateFormat
+		SimpleDateFormat sdf=new SimpleDateFormat("");
 		}
 		
 	}

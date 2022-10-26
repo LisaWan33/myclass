@@ -13,7 +13,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class Lisa70 {
 	public static void main(String[] args) {
-     /*可以從網路抓照片下來、可以將網頁轉成PDF
+     /*可以從網路抓照片下來(Lisa70)、可以將網頁轉成PDF
       * URL url = new URL("輸入網站");
       * URL url = new URL("https://pdfmyurl.com/"""?url="""輸入網址");
       * 

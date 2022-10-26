@@ -96,6 +96,7 @@ public class GuessNumber extends JFrame implements ActionListener{
 		
 		private void newRound() {
 			answer=createAnswer(3);
+			counter = 0;
 			log.setText("");
 			System.out.println(answer);
 					}
@@ -103,8 +104,8 @@ public class GuessNumber extends JFrame implements ActionListener{
 		
 		@Override //聽的機制有被觸發，按猜
 		public void actionPerformed(ActionEvent e) {
-			/*System.out.println("Listener 0");
-			 * 
+			System.out.println("Listener 0");
+			 /* 
 			 */
 			counter++;
 			String result=checkAB();

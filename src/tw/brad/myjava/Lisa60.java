@@ -15,7 +15,13 @@ public class Lisa60 {
 		}
 		
 		
-	//TCP/UDP	
+	/*TCP/UDP
+	 * 
+	 * ip.getHostAddress():得到對方的ip位置
+	 * 	
+	 */
+		
+		
 	}
 
 }

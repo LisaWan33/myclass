@@ -13,7 +13,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class Lisa71 {
 	public static void main(String[] args) {
-     /*
+     /*承襲Lisa70
       * 
       * 
       * 

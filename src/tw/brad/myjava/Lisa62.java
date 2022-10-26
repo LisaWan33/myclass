@@ -19,12 +19,14 @@ public class Lisa62 {
 				 * 接收DatagramSocket中的資料。
 				 * 
 				 * 
+				 * DatagramPacket packet:接收
+				 * 
 				 */
 				
 				
 				/* DatagramSocket(int prot)：
 				 * 建立一個DatagramSocket例項，並將該"物件"
-				 * 繫結到本機預設IP地址、指定埠。
+				 * """"繫結到"""""本機預設IP地址、指定埠。
 				 * 
 				 * receive(DatagramPacket p)：
 				 * 從該DatagramSocket中接收資料報。
@@ -32,7 +34,7 @@ public class Lisa62 {
 				 * 以該DatagramSocket物件向外傳送資料報。
 				 * 
 				 * DatagramPacket物件，該物件的作用是
-				 * 接收DatagramSocket中的資料。
+				 * """""接收"""""""DatagramSocket中的資料。
 				 * 
 				*/
 				
@@ -47,18 +49,11 @@ public class Lisa62 {
 				System.out.println(remoteIp + ":" + mesg);
 				if (mesg.equals("bye")) {
 					break;
-				}
-			} catch (Exception e) {
+					}
+				} catch (Exception e) {
 				System.out.println(e);
-			}
-		}
-		
-		
-		
-		
-		
-		
-		
+				}
+					}		
 		
 		
 	}

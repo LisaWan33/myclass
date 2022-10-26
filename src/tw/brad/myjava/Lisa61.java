@@ -45,8 +45,8 @@ public class Lisa61 {
 			DatagramSocket socket = new DatagramSocket();
 			DatagramPacket packet = 
 				new DatagramPacket(mesgData, mesgData.length, 
-					InetAddress.getByName("10.0.102.150"), 8888);
-					 /*傳給自己資料(ip位置)，但我們自己看不到
+					InetAddress.getByName("192.168.43.111"), 8888);
+					 /* 可傳給自己資料(ip位置)
 					  * DatagramPacket(byte[] buf, int length, InetAddress addr, int port)：
 					  * 以一個包含資料的陣列來建立DatagramPacket物件，建立該
 					  * DatagramPacket物件時還指定了
@@ -57,6 +57,8 @@ public class Lisa61 {
 			
 			
 			socket.send(packet);
+			//傳送mesgData資料、mesgData.lengt長度、InetAddress.getByName("10.0.102.150")網路ip、8888port資料
+			//全部包裝在package，再send出去
 			socket.close();
 			System.out.println("OK");
 		}catch(Exception e) {

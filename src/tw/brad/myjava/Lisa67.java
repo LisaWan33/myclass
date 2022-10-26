@@ -12,7 +12,7 @@ public class Lisa67 {
 	public static void main(String[] args) {
 	
 		
-		try {
+		try {//66(傳送端)、67(接收端)
 			ServerSocket server=new ServerSocket(9487);
 			Socket socket=server.accept();
 			

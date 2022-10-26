@@ -11,7 +11,7 @@ public class Lisa63 {
 		
 		/*掃對方的port號
 		 * 用戶端
-		 * hostname:主機(10.0.102.45)
+		 * hostname:主機(10.0.102.45)老師
 		 * 會拿到socket的物件實體
 		 * 
 		 * InetAddress.getByName=>>>unknowhostexception

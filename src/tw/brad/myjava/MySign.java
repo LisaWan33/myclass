@@ -14,12 +14,14 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import tw.brad.myclass.MyClock;
 import tw.brad.myclass.MyDrawer;
 
 public class MySign extends JFrame{
 	private JButton clear, undo, redo, chColor,save, saveObj, loadObj;
 	private MyDrawer myDrawer;
-		
+	private MyClock myClock;
+	
 			public MySign() {
 		
 			super("簽名App");
@@ -33,7 +35,7 @@ public class MySign extends JFrame{
 			save=new JButton("Save JPG");
 			saveObj=new JButton("Save Obj");
 			loadObj=new JButton("save Load");
-			myclock= new MyClock();
+			myClock= new MyClock();
 			
 			JPanel top = new JPanel(new FlowLayout());
 			top.add(clear); top.add(undo); top.add(redo);
