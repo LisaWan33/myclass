@@ -3,6 +3,7 @@ package tw.brad.myclass; //物件導向
 public class Scooter extends Bike{ //延伸、擴大、發揚光大(繼承>>>認Bike為父類別)
 	private int gear;       //設計多一個檔位 //物件"屬性"
 	private int color;      //進行初始化
+	
 	 public Scooter() {
 			this(2); //另一種方法
 		}
@@ -16,7 +17,6 @@ public class Scooter extends Bike{ //延伸、擴大、發揚光大(繼承>>>認
 	/*public Scooter() {
 		this.color=1;一號色
 		} 上種，第1種方法*/
-	
 	public void upSpeed() { //改善加速度 //"方法" (override:改寫)   1
 		
 		speed = speed < 1 ? 1 : speed + speed*gear;

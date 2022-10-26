@@ -13,12 +13,16 @@ public class Racing extends JFrame {
 	private JButton go;
 	private JLabel[] lanes;
 	private Car[] cars;
+	private int rank;
+	private MyClock myclock;
 	
 	public Racing() {
 		super("賽車");//設計8個賽道+1個按鈕道;一個垂直column
 		setLayout(new GridLayout(9,1));
 		
-		go=new JButton("GO!"); add(go);
+		go=new JButton("GO!"); 
+		top.add(go);top.add(myclock);
+		
 		go.setBackground(Color.lightGray);
 		lanes=new JLabel[8];
 		for(int i=0;i<lanes.length;i++) {
@@ -40,14 +44,19 @@ public class Racing extends JFrame {
 		preGo();
 	}
 	private void preGo() {
+		rank=1;
 		cars=new Car[8];
 		for (int i=0;i<cars.length;i++) {
 			cars[i]=new Car(i);
+		}
+		for(int i=0;i<lanes.length;i++) {
+			lanes[i].setText((i+1)+".");
 		}
 	}
 	private void go() {
 		for (int i=0;i<cars.length;i++) {
 			cars[i].start();
+			setEnabled(false);
 		}
 	}
 	
@@ -57,15 +66,29 @@ public class Racing extends JFrame {
 		@Override
 		public void run() {
 			for(int i=0;i<100;i++) {
-				lanes[lane].setText(lanes[lane].getText()+">");
+				if(i==99) {
+					
+					lanes[lane].setText(lanes[lane].getText()+">"+rank++);
+				
+				}else {
+					lanes[lane].setText(lanes[lane].getText()+">");
+				}
 				try {
+					
 					Thread.sleep(10+(int)(Math.random()*200));
 				}catch(Exception e){
-					
+					break;
 				}
 			}
 		}
 	}
+	private void stopGame() {
+		for(int i=0;i<cars.length;i++) {
+			cars[i].interrupt();
+		}
+	go.setEnabled(true);
+	}
+	
 	public static void main(String[] args) {
 		new Racing();
 	}

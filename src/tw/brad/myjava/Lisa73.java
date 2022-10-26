@@ -28,7 +28,7 @@ class MyThread extends Thread{
 	MyThread(String name){
 		this.name=name;
 	}
-	@Override //run()方法:=>>Thread
+	@Override //run()方法:=>>Thread //設定執行緒，一項任務
 	public void run() {
 		for(int i=0;i<100;i++) {
 			System.out.println(name+":"+i);
