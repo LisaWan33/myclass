@@ -33,6 +33,7 @@ public class Racing extends JFrame {
 		add(top);
 		
 		go.setBackground(Color.lightGray);
+		////////////////////////////////////////
 		lanes=new JLabel[8];
 		for(int i=0;i<lanes.length;i++) {
 			lanes[i]=new JLabel((i+1)+".");
