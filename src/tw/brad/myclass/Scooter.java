@@ -33,7 +33,7 @@ public class Scooter extends Bike{ //延伸、擴大、發揚光大(繼承>>>認
 			}
 
 	public int changeGear(int gear /*想不到其他英文，檔位:整數  */ ) {
-		if(gear>=0 && gear<=5) {//int:32768~-32767很大，所以要設計int大小、範圍
+		if(gear>=0 && gear<=5) {   //int:32768~-32767很大，所以要設計int大小、範圍
 			this.gear=gear;
 			/*對外接收到的檔位=這個檔位屬性，剛好一樣，別想太多 
 			 * this:本類別產生的那個物件實體(特別強調的時候)
@@ -45,4 +45,4 @@ public class Scooter extends Bike{ //延伸、擴大、發揚光大(繼承>>>認
 		return gear;
 	}	
 }
-
+//時坐在28 code

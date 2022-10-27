@@ -19,7 +19,7 @@ public class Lisa25 { //4
 		//new:在記憶體產生一個位置--也初始化，物件產生，且要建構(人生中要有一次)  1:color		
 		System.out.println(s1.getSpeed()+":"+s1.getGear());//字串相加
 		
-		s1.changeGear(2);//來自scooter，超過5，不執行，回原檔位
+		s1.changeGear(2);//changeGear()來自scooter，超過5，不執行，回原檔位
 		s1.upSpeed();s1.upSpeed(); //1+1*2=3
 		System.out.println(s1.getSpeed());
 		

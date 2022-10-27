@@ -34,12 +34,15 @@ public class MySign extends JFrame{
 			chColor=new JButton("Color");
 			save=new JButton("Save JPG");
 			saveObj=new JButton("Save Obj");
-			loadObj=new JButton("save Load");
+			loadObj=new JButton("Load Obj");
 			myClock= new MyClock();
 			
 			JPanel top = new JPanel(new FlowLayout());
 			top.add(clear); top.add(undo); top.add(redo);
-			top.add(chColor);top.add(save);top.add(myClock);
+			top.add(chColor);top.add(save);top.add(saveObj); top.add(loadObj);
+			top.add(myClock);
+			
+			
 			
 			add(top, BorderLayout.NORTH);
 			

@@ -14,6 +14,7 @@ public class MyClock extends JLabel {
 	public MyClock(){
 		timer=new Timer();
 		timer.schedule(new ClockTask(),0,1000);
+		//timer.schedule(new ClockTask(),0,1000):任務/無延遲/每千分的1秒期間
 		
 	}
 	private class ClockTask extends TimerTask{
@@ -30,7 +31,7 @@ public class MyClock extends JLabel {
 //		setText(String.format("%04d / %02d / %02d %02d:%02d:%02d",yy,mm,dd,h,m,s ));
 //		
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		setText(sdf.format(new Date()));
+		setText(sdf.format(new Date() )  );
 		}
 		
 	}

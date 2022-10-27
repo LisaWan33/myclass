@@ -27,8 +27,9 @@ public class MyDrawer extends JPanel {
 	
 	//private LinkedList<LinkedList<HashMap<String, Integer>>> lines; // Lines<Line<Point>>
 	//private LinkedList<LinkedList<Point>> lines, recyler; // Lines<Line<Point>>
-	private LinkedList<Line> lines, recyler; // Lines<Line<Point>>
 	
+	
+	private LinkedList<Line> lines, recyler; // Lines<Line<Point>>
 	private Color nowColor;
 	
 	public MyDrawer() {
