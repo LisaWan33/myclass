@@ -29,7 +29,6 @@ public class Racing extends JFrame {
 		JPanel top = new JPanel(new FlowLayout());
 		
 		top.add(go);top.add(myClock);
-		
 		add(top);
 		
 		go.setBackground(Color.lightGray);

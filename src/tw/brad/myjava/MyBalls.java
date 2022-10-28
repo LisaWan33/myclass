@@ -19,7 +19,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class MyBalls extends JFrame{
+public class MyBalls extends JFrame{ //11s
 		private MyPanel myPanel;
 		//private JButton Go;
 		

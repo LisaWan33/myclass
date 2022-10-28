@@ -28,6 +28,7 @@ import javax.swing.JPanel;
 		private BufferedImage[] ballImgs;
 		private int imgW, imgH;
 		
+		
 		public MyPanel() {
 			setBackground(Color.CYAN);
 			
@@ -38,16 +39,11 @@ import javax.swing.JPanel;
 					ballImgs[2]=ImageIO.read(new File("dir1/ball2.png"));
 					imgW = ballImgs[0].getWidth();
 					imgH = ballImgs[0].getHeight();
-					
-			
-			
 			}catch (Exception e) {
 			}
 			
-			
 			timer=new Timer();
 			timer.schedule(new RefreshTask(), 0,16);
-			
 			balls = new LinkedList<>();
 			
 			addMouseListener(new MouseAdapter() {
@@ -56,8 +52,10 @@ import javax.swing.JPanel;
 					clickEvent(e.getX(), e.getY());
 				}
 			});
-		
 		}
+		
+		
+		
 		private class RefreshTask extends TimerTask{
 			@Override
 			public void run() {
@@ -92,6 +90,8 @@ import javax.swing.JPanel;
 		
 
 	}
+	
+	
 	class Ball extends TimerTask{
 		private int x,y,dx,dy;
 		private int ball; //0 1 2
