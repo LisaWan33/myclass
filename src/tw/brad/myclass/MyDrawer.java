@@ -35,7 +35,6 @@ public class MyDrawer extends JPanel {
 	public MyDrawer() {
 		this(Color.BLUE);
 	}
-	
 	public MyDrawer(Color initColor) {
 		setBackground(Color.YELLOW);
 		
