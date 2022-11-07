@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-public class JDBC03 {
+public class JDBC03 { //最佳，相比前兩個 ， DriverManager:驅動程式。
 
 	public static void main(String[] args) {
 		Properties prop= new Properties();

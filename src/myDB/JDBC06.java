@@ -26,18 +26,19 @@ public class JDBC06 {
 		
 		 try {
 			String json = getJSONString();
-			//直接呼叫
-			parseJSON(json);
+			
+			parseJSON(json);//直接呼叫
 			System.out.println("OK");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
+	
 	static String getJSONString()throws Exception {
 		URL url=new URL(
 				"https://data.coa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx");
 		
-		HttpsURLConnection conn=(HttpsURLConnection)url.openConnection();
+		HttpsURLConnection conn=(HttpsURLConnection)url.openConnection();//(HttpsURLConnection)url:強制轉型
 		conn.connect();
 		
 		StringBuffer sb= new StringBuffer();
@@ -55,19 +56,21 @@ static void parseJSON(String json) throws Exception{
 	Properties prop= new Properties();
 	prop.put("user", "root");
 	prop.put("password", "root");
+	
 	Connection conn= 
 			DriverManager.getConnection(
 					"jdbc:mysql://localhost:3309/eeit53",prop);
 	Statement stmt=conn.createStatement();
 	stmt.execute("DELETE FROM food");
-//	stmt.execute("ALTER TABLE food ALTER_IN ");
+	stmt.execute("ALTER TABLE food AUTO_INCREMENT = 1");
 	
-	String sql="INSERT INTO cust(name,addr,tel,city,town,picurl,lat,lng) "
+	String sql="INSERT INTO food(name,addr,tel,city,town,picurl,lat,lng) "
 			+ "VALUES (?,?,?,?,?,?,?,?)";
 	PreparedStatement pstmt =conn.prepareStatement(sql);
 	
 	
 	JSONArray root =new JSONArray(json);
+	
 	System.out.println("size:"+root.length());
 	for(int i=0;i<root.length();i++) {
 		JSONObject row=root.getJSONObject(i);
@@ -79,13 +82,14 @@ static void parseJSON(String json) throws Exception{
 		pstmt.setString(5, row.getString("Town"));
 		pstmt.setString(6, row.getString("PicURL"));
 
-		
+		//會發現經、緯度會有空值現象，需處理=>Double.parseDouble()
 		try {
 			pstmt.setDouble(7, Double.parseDouble(row.getString("Latitude")));
 		}catch (Exception e) {
 			System.out.println(row.getString("Name") +":error1");
-			pstmt.setDouble(7, 0);
+			pstmt.setDouble(7, 0); //將第七筆資料，在例外狀況時，設置成為0的值
 		}
+		
 		try {
 			pstmt.setDouble(8, Double.parseDouble(row.getString("Longitude")) );
 		}catch(Exception e) {

@@ -13,6 +13,7 @@ public class JDBC05 {
 		Properties prop= new Properties();
 		prop.put("user", "root");
 		prop.put("password", "root");
+		
 		try {
 		Connection conn= DriverManager.getConnection(
 					"jdbc:mysql://localhost:3309/eeit53",prop);

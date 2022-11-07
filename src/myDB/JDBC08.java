@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 import java.util.Scanner;
@@ -14,26 +13,31 @@ public class JDBC08 {
 	public static void main(String[] args) {
 		Scanner scanner =new Scanner(System.in);
 		
-		System.out.println("page=");
+		System.out.println("page="); //可以直接選定要翻到第幾頁
 		int page=scanner.nextInt();
 		
 		Properties prop= new Properties();
 		prop.put("user", "root");
 		prop.put("password", "root");
-		int rpp=14; //row per page
-		int start=(page-1)*rpp;
+		
+		int rpp=10; //row per page(一頁有10筆資料，共139筆資料)
+		int start=(page-1)*rpp; //(page)共需14頁，但要如何做呢?
 		
 		try {
 			Connection conn= 
 					DriverManager.getConnection(
 						"jdbc:mysql://localhost:3309/eeit53",prop);
 			
-			String sql1="SELECT count (*) AS count FROM food";
+			String sql0="SELECT count (*) AS count FROM food";
+			//sql語法: AS 定義便名，所以之後都需要用count來表示
 			Statement stmt=conn.createStatement();
-			ResultSet rs1=stmt.executeQuery(sql1);
-			rs1.next();
-			int total=re1.ge
+			ResultSet rs0=stmt.executeQuery(sql0);
+			rs0.next(); //next:接著
 			
+			int total = rs0.getInt("count"); //共幾筆
+			int totalPage = total / rpp + 1;
+			
+			//LIMIT:限制幾筆
 			String sql=String.format("SELECT*FROM food LIMIT %d,%d",start,rpp);
 			PreparedStatement pstmt= conn.prepareStatement(sql);
 			ResultSet rs=pstmt.executeQuery();
@@ -46,7 +50,7 @@ public class JDBC08 {
 						}
 						rs.close();
 						conn.close();
-					} catch (SQLException e) {
+					} catch (Exception e) {
 			}
 	
 		}

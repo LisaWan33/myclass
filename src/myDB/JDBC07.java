@@ -13,19 +13,22 @@ public class JDBC07 {
 	public static void main(String[] args) {
 		Scanner scanner =new Scanner(System.in);
 		
-		System.out.println("keyword=");
+		System.out.println("keyword= ");
 		String key=scanner.next();
 		
 		Properties prop= new Properties();
 		prop.put("user", "root");
 		prop.put("password", "root");
+		
 		try {
 			Connection conn= 
 					DriverManager.getConnection(
 						"jdbc:mysql://localhost:3309/eeit53",prop);
+			
 			String sql="SELECT*FROM food WHERE name LIKE ? OR addr LIKE ?";
 			PreparedStatement pstmt= conn.prepareStatement(sql);
-			pstmt.setString(1, "%" + key + "%");
+			
+			pstmt.setString(1, "%" + key + "%"); //連接第一個 ?，可以得知%key%資料
 			pstmt.setString(2, "%" + key + "%");
 			ResultSet rs=pstmt.executeQuery();
 			
