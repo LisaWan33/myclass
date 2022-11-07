@@ -126,31 +126,30 @@ public class TextTest extends JFrame{
 //		bufw.close();
 		
 
-	if(isSaveasFile()) {
+	if(isSaveFile()) {
 		dispose();
 	}else{
-		if(choosefileToSave()==null){
-		int option=JOptionPane.showConfirmDialog(
-				null, "未儲存過檔案，是否另存新檔?","另存新檔確認",
-				JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE,null);
-			switch(option) {
-			case JOptionPane.YES_OPTION:
-				saveasfile();
-				break;
-			case JOptionPane.NO_OPTION:
+		if(choosefileToSave()!=null){
+			BufferedWriter bufw=
+					new BufferedWriter(
+					new FileWriter(choosefileToSave()));
+			String text=myTextArea.getText();
+			bufw.write(text);
+			bufw.flush();
+			bufw.close();
+			}else {
+				int option=JOptionPane.showConfirmDialog(
+						null, "未儲存過檔案，是否另存新檔?","另存新檔確認",
+						JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE,null);
+					switch(option) {
+					case JOptionPane.YES_OPTION:
+						saveasfile(); break;
+					case JOptionPane.NO_OPTION:	
+			
+			}
 		}
-	}else {
-		BufferedWriter bufw=
-				new BufferedWriter(
-				new FileWriter(choosefileToSave()));
-		String text=myTextArea.getText();
-		bufw.write(text);
-		bufw.flush();
-		bufw.close();
-	}
-}
 	}	
-	
+}	
 	private void saveasfile()throws Exception{
 		String text=myTextArea.getText();
 		BufferedWriter bufw=
@@ -201,10 +200,6 @@ public class TextTest extends JFrame{
 }
 	
 	private  boolean isSaveFile() {
-		return false ;
-	}
-	
-	private  boolean isSaveasFile() {
 		return false ;
 	}
 /////////////////////////////////////////////////////////
