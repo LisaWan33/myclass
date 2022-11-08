@@ -14,7 +14,7 @@ public class JDBC11 {
 	private static Connection conn;
 	private final static String url = "jdbc:mysql://localhost:3309/eeit53";
 	private final static String sqlCheck = "SELECT count(*) count FROM member WHERE account = ?";
-	private static final String sqlInsert = "INSERT INTO member (account,passwd,realname) VALUES (?,?,?)";
+	private static final String sqlInsert = "INSERT INTO member (account,password,realname) VALUES (?,?,?)";
 	
 	public static void main(String[] args) {
 		Scanner scanner =new Scanner(System.in);

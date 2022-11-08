@@ -9,7 +9,7 @@ import java.util.Properties;
 import org.json.JSONStringer;
 import org.json.JSONWriter;
 
-public class JDBC14 {
+public class JDBC14 { //從資料庫搜尋資料轉換成JSON
 		/*
 		 * {
 			"orderid" : 10248,
@@ -49,7 +49,7 @@ public class JDBC14 {
 			try {
 				Connection conn = 
 					DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/eeit53", prop);
+						"jdbc:mysql://localhost:3309/northwind", prop);
 				Statement stmt =  conn.createStatement();
 				ResultSet rs = stmt.executeQuery(sql);
 				
