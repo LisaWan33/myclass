@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.Properties;
 import java.util.Scanner;
 
-public class JDBC08 {
+public class JDBC08 { //16
 
 	public static void main(String[] args) {
 		Scanner scanner =new Scanner(System.in);
@@ -35,7 +35,9 @@ public class JDBC08 {
 			rs0.next(); //next:接著
 			
 			int total = rs0.getInt("count"); //共幾筆
-			int totalPage = total / rpp + 1;
+			int totalPage = (int)Math.ceil(total*1.0/ rpp ) ;//Lisa78(Math.ceil)
+			
+			if(page>totalPage)throw new MyException();
 			
 			//LIMIT:限制幾筆
 			String sql=String.format("SELECT*FROM food LIMIT %d,%d",start,rpp);
@@ -47,12 +49,17 @@ public class JDBC08 {
 				String name=rs.getString("name");	
 				String addr = rs.getString("addr");
 				System.out.printf("%s:%s:%s\n",id, name, addr);
-						}
-						rs.close();
-						conn.close();
-					} catch (Exception e) {
 			}
-	
-		}
-	
+				rs.close();
+				conn.close();
+			} catch (MyException e) {
+			} catch (Exception e) {
+			}
+	}	
+}
+class MyException extends Exception{
+	public MyException() {
+		super("Lisa Exception");
 	}
+}
+
