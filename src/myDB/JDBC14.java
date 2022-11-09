@@ -81,8 +81,8 @@ public class JDBC14 { //從資料庫搜尋資料轉換成JSON
 					row.endObject();
 				}
 				
-				detail.endArray();
-				jw.endObject();
+				detail.endArray();//]
+				jw.endObject();//}
 				
 				stmt.close();
 				rs.close();
