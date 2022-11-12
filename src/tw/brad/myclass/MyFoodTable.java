@@ -32,7 +32,12 @@ public class MyFoodTable extends JTable{
 		try {
 			foodDB.queryData("SELECT id, name, tel FROM food ORDER BY name");
 			tableModel.setColumnIdentifiers(foodDB.getHeader());
+			//foodDB.queryData("SELECT picul FROM food ORDER BY name");
+			
+			
+			
 			repaint();
+			
 		}catch(Exception e) {
 			System.out.println(e);
 		}
