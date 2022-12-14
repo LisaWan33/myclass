@@ -62,7 +62,7 @@ public class MyFoodDB extends JFrame{
 				foodTable.addRow();
 			}
 		});
-	
+		
 		test.addActionListener(new ActionListener() {
 			
 			@Override
